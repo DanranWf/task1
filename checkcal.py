@@ -24,23 +24,25 @@ class TestCal:     #==========class fist capital should be lowercase!
 
     @pytest.mark.parametrize('a,b,result',adddata)
     @pytest.mark.run(order=-4)
+    @pytest.mark.dependency(name="add")
     def test_add(self,a,b,result):                         #=========== args not be sended in test!
         assert self.cal.add(a,b) ==result
 
     @pytest.mark.parametrize("a,b,result",minusdata)
     @pytest.mark.run(order=-3)
-    @pytest.mark.dependency(depends=["test_add"])
+    @pytest.mark.dependency(depends=["add"])              # note the difference betwwen name="test_add", and depends=["test_add"]
     def test_minus(self,a,b,result):
         assert self.cal.minus(a,b)==result
 
     @pytest.mark.parametrize('a,b,result',multidata)
     @pytest.mark.run(order=-2)
+    @pytest.mark.dependency(name="multi")
     def test_multi(self,a,b,result):
         assert self.cal.multi(a,b)==result
 
     @pytest.mark.parametrize('a,b,result', divdata)
     @pytest.mark.run(order=-1)
-    @pytest.mark.dependency(depends=["test_multi"])
+    @pytest.mark.dependency(depends=["multi"])
     def test_divd(self,a,b,result):
         assert self.cal.divd(a,b)==result
 
