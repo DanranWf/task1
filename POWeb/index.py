@@ -8,7 +8,7 @@ from register import Register
 from login import Login
 
 
-class Index:
+class Index:                                    #==================== single example mode
     def __init__(self):
         self.driver=webdriver.Chrome()
         self.driver.get('https://work.weixin.qq.com/')
@@ -24,3 +24,5 @@ class Index:
         return Login(self.driver)
 # Index().goto_register().register()
 # Index().goto_login().goto_register().register()
+
+# print(Index().driver.title)
