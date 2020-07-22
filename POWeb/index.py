@@ -33,7 +33,9 @@ class Index:                                    #==================== single exa
         self.driver.find_element(By.ID,'su').click()
 
         # WebDriverWait(self.driver,10).until(expected_conditions.presence_of_element_located(*(By.ID,"kw")))   #========= * transfer 1 arg to 2 arg
-        eles=WebDriverWait(self.driver, 10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "div#content_left  .c-container h3 a")))
+        # eles=WebDriverWait(self.driver, 10).until(expected_conditions.presence_of_element_located(('css selector', "div#content_left  .c-container h3 a")))
+        eles = WebDriverWait(self.driver, 10).until(
+            expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "div#content_left  .c-container h3 a")))
         #==================================== =============================== ==================   note!  need to transfer to tuple-form
         print("eles", eles)
 
@@ -50,4 +52,4 @@ class Index:                                    #==================== single exa
 # Index().goto_login().goto_register().register()
 
 # print(Index().driver.title)
-# Index().test_baidu()    obvious wait usage
+Index().test_baidu()    #===================obvious wait usage
