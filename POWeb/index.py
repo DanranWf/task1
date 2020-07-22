@@ -42,10 +42,11 @@ class Index:                                    #==================== single exa
         print("index title is ", self.driver.title)
         eles.click()
         window_handles=self.driver.window_handles
-        self.driver.switch_to_window(window_handles[-1])
+        self.driver.switch_to.window(window_handles[-1])
+        # self.driver.switch_to_window(window_handles[-1])
         print("window handles switched ,then new window title is ", self.driver.title)
 
-        time.sleep(20)
+        time.sleep(5)
 
         self.driver.quit()
 # Index().goto_register().register()
