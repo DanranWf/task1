@@ -7,16 +7,19 @@ class A(object):
 		return self.arg+1
 
 aa=A(3)
-print(aa)
-print(aa.add())
+print('A new instance and with arg 3',aa)
+print('called A.add()mehod',aa.add())
+
+#================================
 
 class B:
 	"""docstring for ClassName"""
 	def __init__(self, arg):
 		super(B, self).__init__()
 		self.arg = arg
-print(B(5))
+print('B new instance and with arg 5',B(5))
 
+#================================
 
 class C(object):
 	"""docstring for C"""
@@ -24,21 +27,23 @@ class C(object):
 		super(C, self).__init__()
 		self.arg = arg
 
+#================================
+
 class A:
-def foo(self):
-print(‘called A.foo()’)
+	def foo(self):
+		print('called A','called A.foo()')
 
 class B(A):
-pass
+	pass
 
 class C(A):
-def foo(self):
-print(‘called C.foo()’)
+	def foo(self):
+		print('called C','called C.foo()')
 
 class D(B, C):
-pass
+	pass
 
-if name == ‘main’:
+
 d = D()
 d.foo()
 
