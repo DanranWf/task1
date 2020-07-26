@@ -27,7 +27,16 @@ class Testwework:
     def test_daka(self):
         self.driver.find_element(MobileBy.XPATH, '//*[@text="工作台"]').click()
         time.sleep(2)
-        self.driver.find_element(MobileBy.XPATH, '//*[@text="打卡"]').click()
+        self.driver.find_element(MobileBy.XPATH, '//*[@text="打卡"]')
+
+        #= scroll method
+        self.driver.find_element(MobileBy.ANDROID_UIAUTOMATOR,'new UiScrollable'
+                                         '(new UiSelector().'
+                                         'scrollable(true).'
+                                         'instance(0)).'
+                                         'scrollIntoView('
+                                         'new UiSelector().'
+                                         'text("企业微信服务商助手").instance(0));').click()
 
 
     def teardown(self):
